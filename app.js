@@ -82,8 +82,9 @@ async function init() {
     try {
         progressText.textContent = "Loading Whisper (Speech-to-Text)...";
         // Initialize Whisper Pipeline
-        whisperPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base', {
+        whisperPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-medium', {
             device: device,
+            dtype: 'q8', // 8-bit quantization to reduce size and VRAM usage
             progress_callback: progressCallback
         });
 
