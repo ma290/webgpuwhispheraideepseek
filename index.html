@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WebGPU Local Chat (Transformers.js)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-titles">
+                <h1>Local WebGPU Chat</h1>
+                <div class="sub-title">DeepSeek-R1 1.5B + Whisper STT</div>
+            </div>
+            <div id="status-indicator">
+                <span id="gpu-status">Checking WebGPU...</span>
+            </div>
+        </header>
+        
+        <div id="progress-container" class="hidden">
+            <div id="progress-text">Loading models...</div>
+            <div class="progress-bar-bg">
+                <div id="progress-bar-fg"></div>
+            </div>
+        </div>
+
+        <div id="chat-container">
+            <!-- Initial greeting -->
+            <div class="message ai">
+                <div class="message-content">Hello! I'm running locally in your browser using WebGPU. You can type a message or use the microphone to transcribe speech. Please wait for the models to load.</div>
+            </div>
+        </div>
+
+        <div class="controls-container">
+            <button id="clear-btn" title="Clear Chat"><i class="fas fa-trash"></i></button>
+            <div class="input-wrapper">
+                <textarea id="chat-input" placeholder="Type a message or use mic..." rows="1" disabled></textarea>
+                <button id="mic-btn" title="Hold to record audio" disabled><i class="fas fa-microphone"></i></button>
+            </div>
+            <button id="send-btn" title="Send message" disabled><i class="fas fa-paper-plane"></i></button>
+            <button id="stop-btn" class="hidden" title="Stop generation"><i class="fas fa-stop"></i></button>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
